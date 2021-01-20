@@ -57,6 +57,9 @@ class DosenActivity : AppCompatActivity() {
             override fun onDelete(dosen: Dosen) {
                 deleteDialog(dosen)
             }
+            override fun onUpdate(dosen: Dosen) {
+                intentEdit(dosen.id, Constant.TYPE_UPDATE)
+            }
 
 
         })
