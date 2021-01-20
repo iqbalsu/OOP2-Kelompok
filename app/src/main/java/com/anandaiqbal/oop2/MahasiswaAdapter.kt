@@ -29,6 +29,9 @@ class MahasiswaAdapter (private val AllMahasiswa: ArrayList<Mahasiswa>, private 
         holder.view.icon_delete.setOnClickListener {
             listener.onDelete(mahasiswa)
         }
+        holder.view.icon_edit.setOnClickListener {
+            listener.onUpdate(mahasiswa)
+        }
     }
 
     class MahasiswaViewHolder(val view: View) : RecyclerView.ViewHolder(view)
@@ -42,5 +45,6 @@ class MahasiswaAdapter (private val AllMahasiswa: ArrayList<Mahasiswa>, private 
     interface OnAdapterListener {
         fun onClick(mahasiswa: Mahasiswa)
         fun onDelete(mahasiswa: Mahasiswa)
+        fun onUpdate(mahasiswa: Mahasiswa)
     }
 }

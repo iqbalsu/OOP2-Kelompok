@@ -57,6 +57,9 @@ class MahasiswaActivity : AppCompatActivity() {
             override fun onDelete(mahasiswa: Mahasiswa) {
                 deleteDialog(mahasiswa)
             }
+            override fun onUpdate(mahasiswa: Mahasiswa) {
+                intentEdit(mahasiswa.id, Constant.TYPE_UPDATE)
+            }
 
         })
         list_mahasiswa.apply {

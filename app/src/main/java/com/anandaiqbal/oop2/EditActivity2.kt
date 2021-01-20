@@ -33,6 +33,14 @@ class EditActivity2 : AppCompatActivity() {
                 finish()
             }
         }
+        btn_updateMahasiswa.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch {
+                db.mahasiswaDao().updateMahasiswa(
+                    Mahasiswa(mahasiswaId, Integer.parseInt(edit_nim.text.toString()), edit_nama2.text.toString(), edit_prodi.text.toString())
+                )
+                finish()
+            }
+        }
     }
 
     fun setupView() {
@@ -40,9 +48,14 @@ class EditActivity2 : AppCompatActivity() {
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType) {
             Constant.TYPE_CREATE -> {
-
+                btn_updateMahasiswa.visibility = View.GONE
             }
             Constant.TYPE_READ -> {
+                button_save2.visibility = View.GONE
+                btn_updateMahasiswa.visibility = View.GONE
+                getDosen()
+            }
+            Constant.TYPE_UPDATE -> {
                 button_save2.visibility = View.GONE
                 getDosen()
             }
